@@ -18,7 +18,7 @@ function compilaSass () {
 function comprimiJavaScript () {
     return gulp.src ('./source/scripts/*.js')
     .pipe (uglify ())
-    .pipe (gulp.dest ('./build/scripts'))
+    .pipe (gulp.dest ('./build/scripts'));
 }
 
 exports.sass = compilaSass;
