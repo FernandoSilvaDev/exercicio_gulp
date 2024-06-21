@@ -21,6 +21,10 @@ function comprimiJavaScript () {
     .pipe (gulp.dest ('./build/scripts'));
 }
 
-exports.sass = compilaSass;
-exports.javascript = comprimiJavaScript;
-exports.images = comprimeImagens;
+exports.default = gulp.parallel(compilaSass, comprimiJavaScript, comprimeImagens);
+
+exports.watch = function() {
+    gulp.watch('./source/styles/**/*.scss', compilaSass);
+    gulp.watch('./source/scripts/*.js', comprimiJavaScript);
+    gulp.watch('./source/images/*', comprimeImagens);
+}
